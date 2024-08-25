@@ -300,7 +300,7 @@ def from_memberships(memberships, data=None):
     if df.shape[1] == 0:
         raise ValueError("Require at least one category. None were found.")
     df.sort_index(axis=1, inplace=True)
-    df.fillna(False, inplace=True)
+    df = df.fillna(0)
     df = df.astype(bool)
     df.set_index(list(df.columns), inplace=True)
     if data is None:
